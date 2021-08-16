@@ -1,3 +1,7 @@
+# Link to 25 + 5 Clock In Process --> [Javascript Calculator](http://russelltheprogrammer.github.io/25-5-clock/)
+
+Note: This project was done for the FCC curriculum for the Front End Libraries Certificate so sometimes there is extra code needed to pass the tests.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
