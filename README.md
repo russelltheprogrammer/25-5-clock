@@ -1,4 +1,4 @@
-# Link to 25 + 5 Clock In Process --> [Javascript Calculator](http://russelltheprogrammer.github.io/25-5-clock/)
+# Link to 25 + 5 Clock In Process --> [25 + 5 Clock](http://russelltheprogrammer.github.io/25-5-clock/)
 
 Note: This project was done for the FCC curriculum for the Front End Libraries Certificate so sometimes there is extra code needed to pass the tests.
 
