@@ -1,4 +1,4 @@
-import './index.css';
+import './index.scss';
 import React from 'react';
 import SessionClock from './SessionClock';
 import BreakLength from './BreakLength';
@@ -9,7 +9,7 @@ const TwentyFivePlusFiveClock = () => {
 
     return ( 
         <div>
-            <div id="container">
+            <div id="container" className="d-flex flex-column justify-content-center align-items-center">
                 <div className="row">
                     <div className="col">
                         <SessionClock />

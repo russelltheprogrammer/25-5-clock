@@ -10,7 +10,6 @@
 .App-header {
   top: 0;
   position: absolute;
-  display: inline-block;
   margin-top: 5px;
   font-size: 2rem;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -29,13 +28,16 @@ body {
 }
 
 #container{
-  justify-content: center;
-  align-items: center;
   margin: 0 auto;
   background-color: white;
   border-style: groove;
   border-width: 3px;
   height: 300px;
+  width: 500px;
+}
+
+#session-clock{
+  padding-bottom: 25px;
 }
 
 .footer {

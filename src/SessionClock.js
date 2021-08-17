@@ -1,9 +1,9 @@
 import React from "react";
-import './index.css';
+import './index.scss';
 
 const SessionClock = () => {
     return ( 
-        <div>
+        <div id="session-clock">
             <label id="timer-label">Session</label>
             <div id="timer-label">MM:SS</div>
         </div>
