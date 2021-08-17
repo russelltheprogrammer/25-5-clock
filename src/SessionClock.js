@@ -1,11 +1,12 @@
 import React from "react";
 import './index.scss';
 
-const SessionClock = () => {
+const SessionClock = ({ sessionCount }) => {
+    
     return ( 
         <div id="session-clock">
             <label id="timer-label">Session</label>
-            <div id="timer-label">MM:SS</div>
+            <div id="timer-label">{sessionCount}</div>
         </div>
      );
 }

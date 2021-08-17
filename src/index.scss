@@ -27,17 +27,27 @@ body {
   cursor: default;
 }
 
-#container{
+#container-flex{
   margin: 0 auto;
   background-color: white;
   border-style: groove;
   border-width: 3px;
   height: 300px;
-  width: 500px;
+  width: 600px;
+  flex: 0 1 10%;
+}
+
+.container{
+  padding: 5px;
+  display: grid;
 }
 
 #session-clock{
   padding-bottom: 25px;
+}
+
+#ssr-buttons{
+  padding-top: 25px;
 }
 
 .footer {

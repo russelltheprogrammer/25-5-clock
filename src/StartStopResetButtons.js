@@ -4,9 +4,9 @@ import './index.scss';
 const PlayStopResetButtons = () => {
     return ( 
 
-        <div>
+        <div id="ssr-buttons">
             <button id="start_stop">StartAndStop</button>
-            <button id ="reset">Reset</button>
+            <button id="reset">Reset</button>
         </div>
      );
 }
