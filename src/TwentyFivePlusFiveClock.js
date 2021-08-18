@@ -6,6 +6,7 @@ import StartStopResetButtons from './StartStopResetButtons';
 const TwentyFivePlusFiveClock = () => {
 
 const [sessionCount, setSessionCount] = useState(25);
+const [breakCount, setBreakCount] = useState(5);
 
 
     return ( 
@@ -24,7 +25,7 @@ const [sessionCount, setSessionCount] = useState(25);
                             </div>
                             <div className="row">
                                 <div className="col-4"><button id="break-increment">U</button></div>
-                                <div className="col-4">Break Length #</div>
+                                <div className="col-4">{breakCount}</div>
                                 <div className="col-4"><button id="break-decrement">D</button></div>
                             </div>
                         </div>
@@ -36,7 +37,7 @@ const [sessionCount, setSessionCount] = useState(25);
                             </div>
                             <div className="row">
                                 <div className="col-4"><button id="session-increment">U</button></div>
-                                <div className="col-4">Session Length #</div>
+                                <div className="col-4">{sessionCount}</div>
                                 <div className="col-4"><button id="session-decrement">D</button></div>
                             </div>
                         </div>
