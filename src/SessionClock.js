@@ -2,9 +2,9 @@ import React from "react";
 import './index.scss';
 import convertMMSS from "./convertMMSS";
 
-const SessionClock = ({ sessionCount }) => {
+const SessionClock = ({ time }) => {
     
-let MMSS = convertMMSS(sessionCount);
+let MMSS = convertMMSS(time);
 
     return ( 
         <div id="session-clock">

@@ -24,7 +24,7 @@ const stopClock = () => {
             <div id="container-flex" className="d-flex flex-column justify-content-center align-items-center">
                 <div className="row">
                     <div className="col-12">
-                        <SessionClock sessionCount={time/1000} />
+                        <SessionClock time={time/1000} />
                     </div>
                 </div>
                 <div className="row">
