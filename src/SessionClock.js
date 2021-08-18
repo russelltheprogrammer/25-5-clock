@@ -1,6 +1,6 @@
 import React from "react";
 import './index.scss';
-import convertMS from "./convertMS";
+import convertMMSS from "./convertMMSS";
 
 const SessionClock = ({ sessionCount }) => {
     
