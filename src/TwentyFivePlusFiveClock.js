@@ -1,13 +1,11 @@
 import './index.scss';
 import React, { useState } from 'react';
 import SessionClock from './SessionClock';
-import StartStopResetButtons from './StartStopResetButtons';
 
 const TwentyFivePlusFiveClock = () => {
 
 const [sessionCount, setSessionCount] = useState(25);
 const [breakCount, setBreakCount] = useState(5);
-
 
     return ( 
         <div>
@@ -24,9 +22,11 @@ const [breakCount, setBreakCount] = useState(5);
                                 <div className="col-12"><label id="break-label">Break Length</label></div>
                             </div>
                             <div className="row">
-                                <div className="col-4"><button id="break-increment">U</button></div>
-                                <div className="col-4">{breakCount}</div>
-                                <div className="col-4"><button id="break-decrement">D</button></div>
+                                <div className="col-4"><button id="break-increment" onClick={() => breakCount >59 ? breakCount : setBreakCount(breakCount + 1)}>
+                                    <i class="fas fa-angle-double-up"></i></button></div>
+                                <div className="col-4 number-manipulation">{breakCount}</div>
+                                <div className="col-4"><button id="break-decrement" onClick={() => breakCount <=0 ? breakCount : setBreakCount(breakCount - 1)}>
+                                    <i class="fas fa-angle-double-down"></i></button></div>
                             </div>
                         </div>
                     </div>
@@ -36,16 +36,21 @@ const [breakCount, setBreakCount] = useState(5);
                                 <div className="col-12"><label id="session-label">Session Length</label></div>
                             </div>
                             <div className="row">
-                                <div className="col-4"><button id="session-increment">U</button></div>
-                                <div className="col-4">{sessionCount}</div>
-                                <div className="col-4"><button id="session-decrement">D</button></div>
+                                <div className="col-4"><button id="session-increment" onClick={() => sessionCount >59 ? sessionCount : setSessionCount(sessionCount + 1)}>
+                                    <i class="fas fa-angle-double-up"></i></button></div>
+                                <div className="col-4 number-manipulation">{sessionCount}</div>
+                                <div className="col-4"><button id="session-decrement" onClick={() => sessionCount <=0 ? sessionCount : setSessionCount(sessionCount - 1)}>
+                                    <i class="fas fa-angle-double-down"></i></button></div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12">     
-                        <StartStopResetButtons />
+                        <div id="ssr-buttons">
+                            <button id="start_stop"><i class="fas fa-play-circle"></i><i class="fas fa-pause-circle"></i></button>
+                            <button id="reset" onClick={() => setSessionCount(25) + setBreakCount(5)}><i class="fas fa-redo"></i></button>
+                        </div>
                     </div>  
                 </div>    
             </div>

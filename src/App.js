@@ -5,10 +5,12 @@ import TwentyFivePlusFiveClock from './TwentyFivePlusFiveClock';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>25 + 5 Clock</h1>
-      </header>
+      <div>
+      <label className="App-header">
+        25 + 5 Clock
+      </label>
       <TwentyFivePlusFiveClock />
+      </div>
       <footer className="footer">
         Coded By <a 
         target="_blank" rel="noreferrer" href="https://github.com/russelltheprogrammer">

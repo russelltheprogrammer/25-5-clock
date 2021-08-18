@@ -8,10 +8,9 @@
 }
 
 .App-header {
-  top: 0;
-  position: absolute;
-  margin-top: 5px;
-  font-size: 2rem;
+  font-size: 40px;
+  margin-bottom: 25px;
+  font-weight: 400;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -28,11 +27,11 @@ body {
 }
 
 #container-flex{
-  margin: 0 auto;
+  margin-bottom: 50px;
   background-color: white;
   border-style: groove;
-  border-width: 3px;
-  height: 300px;
+  border-width: 5px;
+  height: 350px;
   width: 600px;
   flex: 0 1 10%;
 }
@@ -40,10 +39,52 @@ body {
 .container{
   padding: 5px;
   display: grid;
+  width: 150px;
 }
 
 #session-clock{
-  padding-bottom: 25px;
+  padding: 5px 50px 15px;
+  border-width: 5px;
+  border-style: groove;
+  margin-bottom: 10px;
+}
+
+#timer-label{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#time-left{
+font-size: 30px;
+font-weight: bold;
+color: red;
+background-color:greenyellow;
+}
+
+#break-label{
+  font-style: italic;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#session-label{
+  @extend #break-label
+}
+
+.number-manipulation{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#start_stop{
+  font-size: 30px;
+  background-color: teal;
+}
+
+#reset{
+  @extend #start_stop;
+  background-color: red;
 }
 
 #ssr-buttons{
