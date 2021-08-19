@@ -8,13 +8,14 @@ const TwentyFivePlusFiveClock = () => {
 const [sessionCount, setSessionCount] = useState(1500000);
 const [breakCount, setBreakCount] = useState(300000);
 const [time, setTime] = useState(1500000);
+const [delay, setDelay] = useState(1000);
+const [isRunning, setIsRunning] = useState(false);
 
-const StartClock = () => {
-
-    useInterval(() => { 
+useInterval(() => { 
      setTime(time - 1000)
-    }, 1000);
-}
+    }, isRunning ? delay : null);
+
+const handlePlayStop = () => isRunning ? setIsRunning(false) : setIsRunning(true);
 
 const StopClock = () => {
 
@@ -61,7 +62,7 @@ const StopClock = () => {
                 <div className="row">
                     <div className="col-12">     
                         <div id="ssr-buttons">
-                            <button id="start_stop" onClick={() => StartClock()}><i className="fas fa-play-circle"></i><i className="fas fa-pause-circle"></i></button>
+                            <button id="start_stop" onClick={() => handlePlayStop()}><i className="fas fa-play-circle"></i><i className="fas fa-pause-circle"></i></button>
                             <button id="reset" onClick={() => setSessionCount(1500000) + setBreakCount(300000) + setTime(1500000)}><i className="fas fa-redo"></i></button>
                         </div>
                     </div>  
