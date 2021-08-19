@@ -1,21 +1,22 @@
 import './index.scss';
 import React, { useState } from 'react';
 import SessionClock from './SessionClock';
+import useInterval from './useInterval';
 
 const TwentyFivePlusFiveClock = () => {
 
 const [sessionCount, setSessionCount] = useState(1500000);
 const [breakCount, setBreakCount] = useState(300000);
-const [time, setTime] = useState(1500000)
+const [time, setTime] = useState(1500000);
 
-const startClock = () => {
+const StartClock = () => {
 
-    setInterval(() => { 
+    useInterval(() => { 
      setTime(time - 1000)
     }, 1000);
 }
 
-const stopClock = () => {
+const StopClock = () => {
 
 }
  
@@ -60,7 +61,7 @@ const stopClock = () => {
                 <div className="row">
                     <div className="col-12">     
                         <div id="ssr-buttons">
-                            <button id="start_stop" onClick={() => startClock()}><i className="fas fa-play-circle"></i><i className="fas fa-pause-circle"></i></button>
+                            <button id="start_stop" onClick={() => StartClock()}><i className="fas fa-play-circle"></i><i className="fas fa-pause-circle"></i></button>
                             <button id="reset" onClick={() => setSessionCount(1500000) + setBreakCount(300000) + setTime(1500000)}><i className="fas fa-redo"></i></button>
                         </div>
                     </div>  
