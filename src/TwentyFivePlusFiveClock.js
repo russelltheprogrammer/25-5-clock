@@ -7,15 +7,15 @@ const TwentyFivePlusFiveClock = () => {
 
 const [sessionCount, setSessionCount] = useState(1500000);
 const [breakCount, setBreakCount] = useState(300000);
+const [time, setTime] = useState(1500000);
 const [sessionCountToggle, setSessionCountToggle] = useState(true);
 const [breakCountToggle, setBreakCountToggle] = useState(false);
-const [time, setTime] = useState(1500000);
-const [delay, setDelay] = useState(1000);
 const [isRunning, setIsRunning] = useState(false);
+const delay = 1000;
 
 useInterval(() => { 
     if(time < 1000){
-        handleSessionAndBreakToggle()
+        return handleSessionAndBreakToggle() + document.getElementById("beep").play()
     }
     else if(time > 0 && sessionCountToggle) { 
         setTime(time - 1000)
@@ -31,35 +31,40 @@ const handleSessionAndBreakToggle = () => sessionCountToggle
         ? setSessionCountToggle(false) + setBreakCountToggle(true) + setTime(breakCount)
         : setSessionCountToggle(true) + setBreakCountToggle(false) + setTime(sessionCount);
 
-const handleIncrement = (typeOfCount) => {
-    if( typeOfCount >3540000 || isRunning){
-        return typeOfCount;
+const handleIncrement = (typeOfCount, count) => {
+    if( count >3540000 || isRunning){
+        return count;
     }
     else {
-        if(typeOfCount === breakCount){
-            return setBreakCount(typeOfCount + 60000);
+        if(typeOfCount === "breakCount"){
+            return setBreakCount(count + 60000);
         }
-        else if (typeOfCount === sessionCount){
-            return setSessionCount(typeOfCount + 60000) + setTime(typeOfCount + 60000);
+        else if (typeOfCount === "sessionCount"){
+            return setSessionCount(count + 60000) + setTime(count + 60000);
         }
     }
 };
 
-const handleDecrement = (typeOfCount) => {
-    if( typeOfCount <=60000 || isRunning){
-        return typeOfCount;
+const handleDecrement = (typeOfCount, count) => {
+    if( count <=60000 || isRunning){
+        return count;
     }
     else {
-        if(typeOfCount === breakCount){
-            return setBreakCount(typeOfCount - 60000);
+        if(typeOfCount === "breakCount"){
+            return setBreakCount(count - 60000);
         }
-        else if (typeOfCount === sessionCount){
-            return setSessionCount(typeOfCount - 60000) + setTime(typeOfCount - 60000);
+        else if (typeOfCount === "sessionCount"){
+            return setSessionCount(count - 60000) + setTime(count - 60000);
         }
     }
 };
 
-const handleReset = () => setSessionCount(1500000) + setBreakCount(300000) + setTime(1500000) + setIsRunning(false) + setSessionCountToggle(true);
+const handleReset = () => {
+    let audio = document.getElementById("beep");
+    audio.currentTime = 0;
+    return setSessionCount(1500000) + setBreakCount(300000) + setTime(1500000) + 
+    setIsRunning(false) + setSessionCountToggle(true) + audio.pause();
+};
 
     return ( 
         <div>
@@ -76,10 +81,10 @@ const handleReset = () => setSessionCount(1500000) + setBreakCount(300000) + set
                                 <div className="col-12"><label id="break-label">Break Length</label></div>
                             </div>
                             <div className="row">
-                                <div className="col-4"><button id="break-increment" onClick={() => handleIncrement(breakCount)}>
+                                <div className="col-4"><button id="break-increment" onClick={() => handleIncrement("breakCount", breakCount)}>
                                     <i className="fas fa-angle-double-up"></i></button></div>
-                                <div className="col-4 number-manipulation">{breakCount/60000}</div>
-                                <div className="col-4"><button id="break-decrement" onClick={() => handleDecrement(breakCount)}>
+                                <div className="col-4" id="break-length">{breakCount/60000}</div>
+                                <div className="col-4"><button id="break-decrement" onClick={() => handleDecrement("breakCount", breakCount)}>
                                     <i className="fas fa-angle-double-down"></i></button></div>
                             </div>
                         </div>
@@ -90,9 +95,9 @@ const handleReset = () => setSessionCount(1500000) + setBreakCount(300000) + set
                                 <div className="col-12"><label id="session-label">Session Length</label></div>
                             </div>
                             <div className="row">
-                                <div className="col-4"><button id="session-increment" onClick={() => handleIncrement(sessionCount)}><i className="fas fa-angle-double-up"></i></button></div>
-                                <div className="col-4 number-manipulation">{sessionCount/60000}</div>
-                                <div className="col-4"><button id="session-decrement" onClick={() => handleDecrement(sessionCount)}><i className="fas fa-angle-double-down"></i></button></div>
+                                <div className="col-4"><button id="session-increment" onClick={() => handleIncrement("sessionCount", sessionCount)}><i className="fas fa-angle-double-up"></i></button></div>
+                                <div className="col-4" id="session-length">{sessionCount/60000}</div>
+                                <div className="col-4"><button id="session-decrement" onClick={() => handleDecrement("sessionCount", sessionCount)}><i className="fas fa-angle-double-down"></i></button></div>
                             </div>
                         </div>
                     </div>
@@ -104,7 +109,8 @@ const handleReset = () => setSessionCount(1500000) + setBreakCount(300000) + set
                             <button id="reset" onClick={() => handleReset()}><i className="fas fa-redo"></i></button>
                         </div>
                     </div>  
-                </div>    
+                </div>
+                <audio id="beep" preload="auto" src="https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg"/>    
             </div>
         </div>
      );

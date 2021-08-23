@@ -73,9 +73,13 @@ background-color:greenyellow;
   @extend #break-label
 }
 
-.number-manipulation{
+#break-length{
   font-weight: bold;
   font-size: 20px;
+}
+
+#session-length{
+  @extend #break-length;
 }
 
 #start_stop{
