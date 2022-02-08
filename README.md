@@ -72,7 +72,7 @@ I used ```create-react-app```.
 + React hooks
 + React components
 + Custom Functions
-+ Handle onClick, OnChange, and Other Handle Functions
++ Handle onClick, onChange, and Other Handle Functions
 + Custom hooks
 + Sass
 + Working with large amounts of State
